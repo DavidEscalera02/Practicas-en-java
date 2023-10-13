@@ -6,19 +6,27 @@ public class Pelicula {
     private String Director;
     enum tipo{ACCION,COMEDIA,DRAMA,SUSPENSO};
     tipo Genero;
+    enum  tipo2 {ACCION,COMEDIA,DRAMA,SUSPENSO}
+    tipo Genero2;
+    enum tipo3{ACCION,COMEDIA,DRAMA,SUSPENSO}
+    tipo Genero3;
     private int duracion;
     private int ano;
     private double calificacion;
     //constructores
 
-    public Pelicula(String nombre, String director, tipo genero, int duracion, int ano, double calificacion) {
+    public Pelicula(String nombre, String director, tipo genero, tipo genero2, tipo genero3, int duracion, int ano, double calificacion) {
         this.nombre = nombre;
         Director = director;
         Genero = genero;
+        this.Genero2 = genero2;
+        Genero3 = genero3;
         this.duracion = duracion;
         this.ano = ano;
         this.calificacion = calificacion;
     }
+
+
     // metodos
 
 
@@ -87,15 +95,15 @@ public class Pelicula {
     }
     private String calcularValoracion(){
         if (calificacion>=0 && calificacion<=2){
-            return "Remala";
+            return "*";
         } else if (calificacion>=2 && calificacion>=5) {
-            return "Mala";
+            return "**";
         } else if (calificacion>=5 && calificacion>=7){
-            return "Regular";
+            return "***";
         } else if (calificacion>=7 && calificacion>=8) {
-            return "Buena";
+            return "****";
         } else if (calificacion>=8 && calificacion>=10) {
-            return "Exelente";
+            return "******";
         }else {
             return "Asigne una valoracion Valida";
         }
@@ -107,4 +115,14 @@ public class Pelicula {
             return false;
         }
     }
+    public void imprimirCartel() {
+        System.out.println("-------- " + nombre + " ----------");
+        System.out.println(calcularValoracion());
+        System.out.println(ano);
+        System.out.println(Genero+"-"+Genero2+"-"+Genero3);
+        System.out.println(Director);
+
+    }
+
 }
+
